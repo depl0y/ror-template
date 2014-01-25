@@ -1,0 +1,29 @@
+<% provide(:title, "Log in") %>
+
+<div id="bg">
+	<img src="<%= random_image %>"/>
+</div><!-- #bg -->
+
+<div id="wrapper">
+  <div id="block-dashboard">
+    <div class="box bg-white col-lg-4 col-lg-offset-4">
+      <h2>Wachtwoord vergeten?</h2>
+      U bent uw wachtwoord vergeten? Geen probleem, vul hier uw e-mail adres in en wij mailen u instructies om een nieuw wachtwoord aan te maken.
+      <br/><br/>
+      <%= form_tag password_resets_path, :method => :post do %>
+          <div class="form-group">
+            <label>E-mail</label>
+            <%= text_field_tag :email, params[:email], {class: "form-control", placeholder: "Uw e-mail adres"} %>
+          </div>
+
+          <%= submit_tag "Verstuur", class: "btn btn-green white" %>
+      <% end %>
+
+      <p class="form-forgot"><%= link_to "Inloggen", login_path %></p>
+
+      <% if flash[:error] %>
+          <div class="alert alert-warning" style="margin-top: 20px"><%= flash[:error] %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

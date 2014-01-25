@@ -1,0 +1,66 @@
+<% provide(:title, "Gebruikers") %>
+<div class="row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+	  	<div class="form-title-bar">
+		  	<div class="pull-left">
+				<h1>Users</h1>
+			</div>
+	  	</div>	
+	</div>	
+</div>
+	
+
+<div class="row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th width="200">Name</th>
+		      <th width="200">Registered</th>
+		      <th>Email</th>
+		      <th width="100">Account</th>
+		      <th width="20">Requests</th>
+		      <th width="75">&nbsp;</th>
+		    </tr>
+		  </thead>
+		
+		  <tbody>
+		  	<% if @users.count > 0 %>
+			    <% @users.each do |user| %>
+			      <tr>
+			      	<td><%= user.name %></td>
+			        <td><%= user.created_at.strftime("%a %d %b @ %H:%M:%S") %></td>
+			        <td><%= user.email %></td>
+			        <td><%= user.accountNumber %></td>
+			        <td align="center"><%= user.requests.count %></td>
+			        <td align="right">
+						<div class="btn-group">
+						  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
+						    <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu pull-right">
+							<li><a href="#" class="manual-pay" data-id="<%= user.id %>">Stuur email</a></li>
+						    <li class="divider"></li>
+						  	<li><a href="#" class="cancel-pay" data-id="<%= user.id %>">Markeren</a></li>
+						  </ul>
+			        	</div>    
+					</td>
+			      </tr>
+			    <% end %>
+			  <% else %>
+		   		<tr>
+		   			<td colspan="7">Geen resultaten gevonden</td>
+		   		</tr>
+			  <% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-6 col-md-8 col-lg-8">
+		<div class="pull-right">
+			<%= paginate @users %>
+		</div>
+	</div>
+</div>

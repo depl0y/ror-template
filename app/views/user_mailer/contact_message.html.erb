@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Contact bericht van App1>
+    <p>
+		Naam: <%= @message.name %><br/>
+		Email: <%= @message.email %><br/>
+		Onderwerp: <%= @message.subject %><br/>
+		Bericht:<br/>
+		<%= @message.message %>
+    </p>
+    <p>
+    	Om in te loggen, klik op deze link: <%= @url %>.
+    </p>
+    <p>Bedankt voor het registreren</p>
+    <p>HetMantleAPId Team</p>
+  </body>
+</html>

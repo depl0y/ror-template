@@ -1,0 +1,43 @@
+<div id="bg">
+	<img src="<%= random_image %>"/>
+</div><!-- #bg -->
+
+<div id="wrapper">
+  <div id="block-dashboard">
+    <div class="box bg-white col-lg-4 col-lg-offset-4">
+      <h2>Nieuw wachtwoord aanmaken</h2>
+
+      <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+          <div class="form-group">
+            <label>Nieuw wachtwoord:</label>
+            <%= f.password_field :new_password, {class: "form-control", placeholder: "Uw nieuwe wachtwoord"} %>
+          </div>
+
+          <div class="form-group">
+            <label>Herhaal nieuwe wachtwoord:</label>
+            <%= f.password_field :new_password_confirmation, {class: "form-control", placeholder: "Uw nieuwe wachtwoord"} %>
+          </div>
+
+          <% if @user.errors.any? %>
+              <div class="error_messages">
+                <h2>Form is invalid</h2>
+                <ul>
+                  <% for message in @user.errors.full_messages %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+
+          <%= f.submit "Verstuur", { class: "btn btn-green white" } %>
+      <% end %>
+
+      <p class="form-forgot"><%= link_to "Inloggen", login_path %></p>
+
+      <% if flash[:error] %>
+          <div class="alert alert-warning" style="margin-top: 20px"><%= flash[:error] %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

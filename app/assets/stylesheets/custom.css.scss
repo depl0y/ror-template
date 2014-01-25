@@ -1,0 +1,102 @@
+/*
+ *= require twitter/bootstrap
+ */
+ 
+ a {
+	 text-decoration: none !important;
+ }
+ 
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+  font-size: 85%;
+}
+
+.form-title {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eaeaea;
+  color: #999;	
+}
+
+.form-title-bar {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eaeaea;
+  color: #999;	
+  height: 60px;	
+}
+
+.form-title-bar .edit-button {
+	padding-top: 20px;
+}
+
+.navbar-default {
+	margin-top: 15px;
+}
+
+a.btn-primary {
+	color: #ffffff !important;
+}
+
+.panel-form {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 5px;
+}
+
+.pagination {
+	margin-top: 0px !important;
+}
+
+.status-circle {
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 10px;
+    margin-right: 10px;
+    margin-top: 6px;
+    width: 10px;	
+}
+
+.status-paid {
+    background-color: #008000;
+    border: 1px solid #008000;
+}
+
+.status-open {
+    border: 1px solid gray;
+}
+
+.status-rejected {
+    background-color: red;
+    border: 1px solid red;
+}
+
+.status-cancelled {
+    background-color: silver;
+    border: 1px solid silver;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
