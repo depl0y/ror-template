@@ -36,12 +36,10 @@ App::Application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'noreply@app.nl'}
+  config.action_mailer.default_options = {from: '< from email address >'}
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-	  address: '<your smtp address>'
-  }
+  config.action_mailer.smtp_settings = { address: '< your smtp address >' }
 
   config.site_url = 'http://local.yoursite.com:3000'
   config.admin_email = 'info@yoursite.com'
