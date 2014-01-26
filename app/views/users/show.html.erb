@@ -1,157 +1,18 @@
+<div class="col-lg-12">
+	<h3>Profile</h3>
 
-<div class="container profile">
-  <h3>Profiel</h3>
-  <a class="float-right" href="/profile/edit">wijzigen</a>
-  <div class="profile-name"><%= @user.name %></div>
+	<table class="table">
 
-  <table class="info">
-    <tr>
-      <td class="c2">
-        e-mail
-      </td>
-      <td>
-        <%= @user.email %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        rekeningnummer
-      </td>
-      <td>
-        <%= @user.accountNumber %>
-      </td>
-    </tr>
+		<tr>
+			<td>Name</td>
+			<td><%= @current_user.name %></td>
+		</tr>
+		<tr>
+			<td>Email Address</td>
+			<td><%= @current_user.email %></td>
+		</tr>
 
-  </table>
+	</table>
 
-</div><!-- .profile -->
-
-<div class="container messages">
-  <h3>Berichten</h3>
-
-  <% if @messages.count > 0 %>
-      <% @messages.each do |request| %>
-          <div class="block-message">
-            <div class="message-date">08-10-2013</div>
-            <div class="message-content">
-              <a class="link-bold">henk.jan@planetinternational.nl</a> heeft zijn verzoek voor Pannenkoeken eten in Toren C van € 25,00 betaald.
-            </div><!-- .message-content -->
-          </div>
-      <% end %>
-  <% else %>
-      <div class="block-message">
-        <div class="message-content">
-          Er zijn geen berichten gevonden
-        </div><!-- .message-content -->
-      </div>
-  <% end %>
-
-</div><!-- .messages -->
-
-
-<div class="container request">
-  <h3>Recente verzoeken uit</h3>
-
-  <table class="table">
-    <tr>
-      <th class="c1">
-        Verstuurd
-      </th>
-      <th class="c2">
-        Verzoek naar
-      </th>
-      <th>
-        Omschrijving
-      </th>
-      <th class="c3">
-        Bedrag
-      </th>
-      <th class="c4">
-        Status
-      </th>
-    </tr>
-    <% if @requests.count > 0 %>
-        <% @requests.each do |request| %>
-            <tr>
-              <td>
-                <%= time_ago_in_words(request.created_at) %> geleden
-              </td>
-              <td>
-                <%= request.recipientAddress %>
-              </td>
-              <td>
-                <%= request.description %>
-              </td>
-              <td>
-                &euro; <%= number_with_precision(request.amount / 100, precision: 2) %>
-              </td>
-              <td><%=
-                  content_tag :span, class: "status " + request.status_class do
-                    request.status_message
-                  end
-              %></td>
-            </tr>
-        <% end %>
-    <% else %>
-        <tr>
-          <td colspan="5">Geen verzonden verzoeken gevonden</td>
-        </tr>
-    <% end %>
-
-  </table>
-
-</div><!-- .request out -->
-
-<div class="container request">
-  <h3>Recente verzoeken in</h3>
-
-  <table class="table">
-    <tr>
-      <th class="c1">
-        Ontvangen
-      </th>
-      <th class="c2">
-        Verzoek van
-      </th>
-      <th>
-        Omschrijving
-      </th>
-      <th class="c3">
-        Bedrag
-      </th>
-      <th class="c4">
-        Status
-      </th>
-    </tr>
-    <% if @received.count > 0 %>
-        <% @received.each do |request| %>
-            <tr>
-              <td>
-                <%= time_ago_in_words(request.created_at) %>
-              </td>
-              <td>
-                <%= request.user.name %> (<%= request.user.email %>)
-              </td>
-              <td>
-                <%= request.description %>
-              </td>
-              <td>
-                &euro; <%= number_with_precision(request.amount / 100, precision: 2) %>
-              </td>
-				<td><%=
-					content_tag :span, class: "status " + request.status_class do
-						request.status_message
-					end
-				%></td>
-			</tr>
-        <% end %>
-    <% else %>
-        <tr>
-          <td colspan="5">Geen ontvangen verzoeken gevonden</td>
-        </tr>
-    <% end %>
-
-
-  </table>
-
-</div><!-- .request in -->
+	<%= link_to "Edit profile", profile_edit_path, class: "btn btn-primary" %>
+</div>

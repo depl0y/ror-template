@@ -32,7 +32,8 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<% if signed_in? %>
-					<%= nav_link_to "Log out", "/logout" %>
+					<%= nav_link_to "Profile", profile_path %>
+					<li><%= link_to("Log out", logout_path, method: "delete") %></li>
 				<% else %>
 					<%= nav_link_to "Sign up", "/signup" %>
 					<%= nav_link_to "Log in", "/login" %>

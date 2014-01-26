@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 	before_action :admin_user, only: [:index]
 
 	def new
-		session["accountNumber"] = nil
 		session["userEmail"] = nil
 		session["userName"] = nil
 
@@ -16,7 +15,6 @@ class UsersController < ApplicationController
 
 		@provided_name = ""
 		@provided_email = ""
-		@account_number = ""
 
 		if session["devise.facebook_data"] && session["devise.facebook_data"].info.name
 			@provided_name = session["devise.facebook_data"].info.name
@@ -63,9 +61,6 @@ class UsersController < ApplicationController
 			end
 		end
 
-		@messages = []
-		@requests = Request.where("user_id = ?", @current_user.id).order("created_at DESC").first(5)
-		@received = Request.where("destination_user_id = ?", @current_user.id).order("created_at DESC").first(5)
 	end
 
 	# POST /users
@@ -73,7 +68,6 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 
-		@user.accountNumber.gsub(" ", "")
 		@user.provider = nil
 
 		if session["devise.facebook_data"] && session["devise.facebook_data"].uid
@@ -217,7 +211,4 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def needs_password?(user, params)
-		user.accountNumber != params[:user][:accountNumber] || user.email != params[:user][:accountNumber]
-	end
 end
