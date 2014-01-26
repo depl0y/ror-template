@@ -12,6 +12,7 @@ This template has the following features:
 - Database scheme for setting up the default database
 - Bootstrap **3.0.3** already integrated
 - Send email on registration / password forget, etc.
+- Basic JSON API setup, user log in and signup
 
 
 ## Set up
@@ -62,5 +63,9 @@ end
 ```
 
 -----
+###Basic JSON API support
 
+ror-template also contains a basic setup for a JSON API. Currently it only supports signing in a user, using just a username and password, after which the server sends back an authentication token. 
+
+-----
 ### More coming soon

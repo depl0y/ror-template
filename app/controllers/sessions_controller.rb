@@ -6,16 +6,8 @@ class SessionsController < ApplicationController
 	def create
 		user = User.find_by(email: params[:session][:email].downcase)
 		if user && user.authenticate(params[:session][:password])
-			remember_token = User.new_remember_token
 
-			if params[:rememberme]
-				cookies.permanent[:remember_token] = remember_token
-			else
-				cookies[:remember_token] = remember_token
-			end
-
-			user.update_attribute(:remember_token, User.encrypt(remember_token))
-			self.current_user = user
+			sign_in(user)
 
 			respond_to do |format|
 				format.html { redirect_back_or profile_path }

@@ -13,22 +13,15 @@ class API::V1::SessionsController < ApiController
 		user = User.find_by(email: params[:email].downcase)
 
 		if user && user.authenticate(params[:password])
-			remember_token = User.new_remember_token
-		
-			if params[:rememberme]
-				cookies.permanent[:remember_token] = remember_token
-			else
-				cookies[:remember_token] = remember_token
-			end
-	
-			user.update_attribute(:remember_token, User.encrypt(remember_token))
-			self.current_user = user
+			sign_in(user)
 	
 			respond_to do |format|
 				format.json { render :json => { :status => "ok", :token => remember_token } }
 			end
 		else
-			format.json { render :json => { :status => "error" } }
+			respond_to do |format|
+				format.json { render :json => { :status => "error" } }
+			end
 		end
 	end
 	
