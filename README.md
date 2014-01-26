@@ -32,19 +32,24 @@ config.action_mailer.default_url_options = { :host => 'yoursite.com' }
 config.site_url = 'http://local.yoursite.com:3000'  
 config.admin_email = 'info@yoursite.com'  
 ```
+
 ###Settings for Facebook login
+
+*/config/initializers/devise.rb
 
 Before you can use Facebook login, you need to create your app ID's on the Facebook developer website.
 Go to https://developers.facebook.com/apps/ and create the apps you need. I ussualy create 2 apps, one for my development environment and one for my production environment.
 
-After you have created those apps, update the following lines:
+After you have created those apps, update the following lines
 
-	if Rails.env.development?
-		config.omniauth :facebook, "APP_ID_DEVELOPMENT", "APP_SECRET_DEVELOPMENT"
-	else
-		config.omniauth :facebook, "APP_ID_PRODUCTION", "APP_SECRET_PRODUCTION"
-	end
 
+```
+if Rails.env.development?
+	config.omniauth :facebook, "APP_ID_DEVELOPMENT", "APP_SECRET_DEVELOPMENT"
+else
+	config.omniauth :facebook, "APP_ID_PRODUCTION", "APP_SECRET_PRODUCTION"
+end
+```
 
 -----
 
