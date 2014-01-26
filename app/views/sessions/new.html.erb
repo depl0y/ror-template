@@ -1,43 +1,31 @@
 <% provide(:title, "Log in") %>
 
-<div id="bg">
-  <img src="<%= random_image %>" />
-</div><!-- #bg -->
+<div class="col-lg-12">
+	<div class="col-lg-6 col-md-6 col-xs-12">
+		<h3>Log in using facebook</h3>
+		<hr>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+	</div>
 
-<div id="wrapper">
+	<div class="col-lg-6 col-md-6 col-xs-12">
+		<h3>Log in using an account</h3>
+		<hr>
+		<%= form_for(:session, url: sessions_path, html: {class: "form-horizontal"}) do |f| %>
+			<div class="form-group">
+				<label>Email</label>
+				<%= f.text_field :email, {class: "form-control", placeholder: "Email address"} %>
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<%= f.password_field :password, {class: "form-control", placeholder: "Password"} %>
+			</div>
 
-  <div id="block-dashboard">
+			<%= f.submit "Log in", class: "btn btn-primary" %>
+			<%= link_to "Forgot your password?", new_password_reset_path %>
+		<% end %>
 
-    <div class="box bg-white col-lg-4 col-lg-offset-4">
-      <h2>Log in</h2>
-      <div class="form-facebook">
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-      </div>
-      <p class="form-text">of</p>
-      <hr noshade="noshade" class="form-line">
-
-      <%= form_for(:session, url: sessions_path, html: {class: "form-horizontal"}) do |f| %>
-        <div class="form-group">
-          <label>E-mail</label>
-          <%= f.text_field :email, {class: "form-control", placeholder: "E-mail adres"} %>
-        </div>
-        <div class="form-group">
-          <label>Wachtwoord</label>
-          <%= f.password_field :password, {class: "form-control", placeholder: "Wachtwoord"} %>
-        </div>
-
-        <%= f.submit "Log in", class: "btn btn-green white" %>
-      <% end %>
-
-      <p class="form-forgot"><%= link_to "Wachtwoord vergeten?", new_password_reset_path %></p>
-
-      <% if flash[:error] %>
-        <div class="alert alert-warning" style="margin-top: 20px"><%= flash[:error] %></div>
-      <% end %>
-    </div><!-- .box -->
-
-
-  </div> <!-- #block-dashboard -->
-
-
-</div><!-- #wrapper -->
+		<% if flash[:error] %>
+			<div class="alert alert-warning" style="margin-top: 20px"><%= flash[:error] %></div>
+		<% end %>
+	</div>
+</div>

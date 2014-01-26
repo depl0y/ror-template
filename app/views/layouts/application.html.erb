@@ -21,32 +21,35 @@
 
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+	<nav class="navbar navbar-default" role="navigation">
 
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-			<%= nav_link_to "Home", "/" %>
-			<%= nav_link_to "About", "/about" %>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<% if signed_in? %>
-				<%= nav_link_to "Log out", "/logout" %>
-			<% else %>
-				<%= nav_link_to "Log in", "/login" %>
-			<% end %>
-		</ul>
-	</div>
-	<!-- /.navbar-collapse -->
-</nav>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<%= nav_link_to "Home", "/" %>
+				<%= nav_link_to "About", "/about" %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if signed_in? %>
+					<%= nav_link_to "Log out", "/logout" %>
+				<% else %>
+					<%= nav_link_to "Sign up", "/signup" %>
+					<%= nav_link_to "Log in", "/login" %>
+				<% end %>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</nav>
 
-<!-- .menubar -->
+	<!-- .menubar -->
+	<%= yield %>
 
-<%= yield %>
+	<%= render('layouts/footer') %>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		<% if flash[:notice] and flash[:notice].kind_of?(Hash) and !flash[:notice][:title].nil? and !flash[:notice][:text].nil? %>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			<% if flash[:notice] and flash[:notice].kind_of?(Hash) and !flash[:notice][:title].nil? and !flash[:notice][:text].nil? %>
 
 			$.prompt("<%= flash[:notice][:text] %>", {
 				title: "<%= flash[:notice][:title] %>",
@@ -54,10 +57,11 @@
 			});
 
 			<% flash[:notice] = nil %>
-		<% end %>
-	});
-</script>
+			<% end %>
+		});
+	</script>
 
-<%= render('layouts/footer') %>
+
+</div>
 </body>
 </html>

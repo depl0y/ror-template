@@ -68,4 +68,21 @@ end
 ror-template also contains a basic setup for a JSON API. Currently it only supports signing in a user, using just a username and password, after which the server sends back an authentication token. 
 
 -----
+###Bundle install
+Make sure that you run the usual ```bundle install``` and/or ```bundle update```  before trying to run the application.
+
+-----
+###Database configuration
+ror-template relies on a database, I usually use a MySQL database, but you can use whatever database RoR supports.
+
+Make sure you edit the database configuration file: **config/database.yml** before running the following command:
+
+```rake db:schema:load RAILS_ENV=development```
+
+Of course the ```RAILS_ENV``` parameter is dependant of the environment where you are running this.
+
+-----
+
+
+-----
 ### More coming soon

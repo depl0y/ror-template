@@ -1,10 +1,32 @@
-<% provide(:title, 'Meld u aan') %>
+<% provide(:title, 'Register') %>
 
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
-	  <h1 class="form-title">Aanmelden</h1>
+<div class="col-lg-12">
+	<% if @user.errors.any? %>
+		<div class="alert alert-warning">
+			<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-	  <%= render 'form' %>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  </div>
+	<div class="col-lg-6 col-md-6 col-xs-12">
+		<h3>Sign up using facebook</h3>
+		<hr>
+		<div class="form-facebook">
+			<% if !session["devise.facebook_data"] || !session["devise.facebook_data"].uid %>
+				<%= link_to "Sign up using facebook", user_omniauth_authorize_path(:facebook), {:class => "btn btn-primary"} %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-xs-12">
+		<h3>Sign up using your email</h3>
+		<hr>
+		<%= render 'form' %>
+
+	</div>
 </div>
