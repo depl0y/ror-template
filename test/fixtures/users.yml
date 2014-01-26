@@ -3,7 +3,6 @@
 one:
   name: MyString
   email: MyString
-  accountNumber: MyString
   password_digest: MyString
   password_reset_token: MyString
   password_reset_at: 2013-09-11 08:38:40
@@ -11,7 +10,6 @@ one:
 two:
   name: MyString
   email: MyString
-  accountNumber: MyString
   password_digest: MyString
   password_reset_token: MyString
   password_reset_at: 2013-09-11 08:38:40
