@@ -12,7 +12,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-	<title>ror-template | <%= yield(:title) %></title>
+	<title><%= t(:sitename) %> | <%= yield(:title) %></title>
 
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -27,16 +27,16 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<%= nav_link_to "Home", "/" %>
-				<%= nav_link_to "About", "/about" %>
+				<%= nav_link_to t("menu.home"), "/" %>
+				<%= nav_link_to t("menu.about"), "/about" %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<% if signed_in? %>
-					<%= nav_link_to "Profile", profile_path %>
-					<li><%= link_to("Log out", logout_path, method: "delete") %></li>
+					<%= nav_link_to t("menu.profile"), profile_path %>
+					<li><%= link_to(t("menu.logout"), logout_path, method: "delete") %></li>
 				<% else %>
-					<%= nav_link_to "Sign up", "/signup" %>
-					<%= nav_link_to "Log in", "/login" %>
+					<%= nav_link_to t("menu.signup"), "/signup" %>
+					<%= nav_link_to t("menu.login"), "/login" %>
 				<% end %>
 			</ul>
 		</div>

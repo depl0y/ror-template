@@ -20,4 +20,33 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    sitename: "ror-template"
+
+    menu:
+        home: "Home"
+        about: "About"
+        profile: "Profile"
+        login: "Log in"
+        logout: "Log out"
+        signup: "Sign up"
+
+    footer: "ror-template, made awesome by <a href='http://sortedbits.com'>Sorted Bits</a>"
+
+    api:
+        ok: "ok"
+        error: "error"
+
+
+    users:
+      profile:
+        title: "Profile"
+        edit: "Edit profile"
+
+        attributes:
+            name: "Name"
+            email: "Email address"
+            password: "Password"
+            confirm_password: "Confirm password"
+            terms: "I agree with the terms"
+            save: "Save"
+
