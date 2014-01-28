@@ -8,12 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in(@user)
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
       
-	  remember_token = User.new_remember_token
-	
-	  cookies[:remember_token] = remember_token
-	  @user.update_attribute(:remember_token, User.encrypt(remember_token))
 	  self.current_user = @user
-      
       
       redirect_to profile_path
     else
