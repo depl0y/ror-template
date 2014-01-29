@@ -11,11 +11,11 @@ A Ruby on Rails template, which already has a lot of features you do not want to
 - Bootstrap **3.0.3** already integrated
 - Send email on registration / password forget, etc.
 - Basic JSON API setup, user log in and signup
-- Basic localization set up
+- Basic localisation set up
 
 
 ## Set up
-Download the template from github and adjust the following files:
+Download the template from Github and adjust the following files:
 
 
 ###Environment config files
@@ -52,7 +52,7 @@ config/initializers/devise.rb
 ```
 
 Before you can use Facebook login, you need to create your app ID's on the Facebook developer website.
-Go to https://developers.facebook.com/apps/ and create the apps you need. I ussualy create 2 apps, one for my development environment and one for my production environment.
+Go to https://developers.facebook.com/apps/ and create the apps you need. I usually create 2 apps, one for my development environment and one for my production environment.
 
 After you have created those apps, update the following lines
 
@@ -80,8 +80,8 @@ Make sure you edit the database configuration file: **config/database.yml** befo
 Of course the ```RAILS_ENV``` parameter is dependant of the environment where you are running this.
 
 
-###Localization
-**ror-template** contains basic localization. Currently most of the strings are extracted from the views/controllers and are put in the standard localization file.
+###Localisation
+**ror-template** contains basic localisation. Currently most of the strings are extracted from the views/controllers and are put in the standard localisation file.
 
 ```
 config/locales/en.yml
