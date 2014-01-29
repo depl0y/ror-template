@@ -61,7 +61,7 @@ module SessionsHelper
 	def signed_in_api_user
 		unless signed_in?
 			respond_to do |format|
-				format.json { render :json => { :status => "error", :message => "You are not logged in" } }
+				format.json { render :json => { :status => t("api.error"), :message => "You are not logged in" } }
 			end
 			return
 		end
@@ -70,7 +70,7 @@ module SessionsHelper
 	def signed_in_user
 		unless signed_in?
 			store_location
-			flash[:notice] = {title: "Sign in required", text: "You need to be signed in to open this page"}
+			flash[:notice] = {title: t("session.sign_in_required.title"), text: t("session.sign_in_required.message") }
 			redirect_to login_url
 		end
 	end	
@@ -82,7 +82,7 @@ module SessionsHelper
 	def admin_user
 		unless admin_user?
 			store_location
-			flash[:notice] = {title: "Access denied", text: "You are not allowed to view this page"}
+			flash[:notice] = {title: t("session.no_access.title"), text: t("session.no_access.message") }
 			redirect_to login_url
 		end
 	end

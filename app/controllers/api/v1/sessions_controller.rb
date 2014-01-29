@@ -2,7 +2,7 @@ class API::V1::SessionsController < ApiController
 
 	def show
 		respond_to do |format|
-			format.json { render :json => { :status => "ok" } }
+			format.json { render :json => { :status => t("api.ok") } }
 		end
 	end
 	
@@ -16,11 +16,11 @@ class API::V1::SessionsController < ApiController
 			sign_in(user)
 	
 			respond_to do |format|
-				format.json { render :json => { :status => "ok", :token => remember_token } }
+				format.json { render :json => { :status => t("api.ok"), :token => remember_token } }
 			end
 		else
 			respond_to do |format|
-				format.json { render :json => { :status => "error" } }
+				format.json { render :json => { :status => t("api.error") } }
 			end
 		end
 	end
@@ -29,7 +29,7 @@ class API::V1::SessionsController < ApiController
 		sign_out
 		
 		respond_to do |format|
-			format.json { render :json => { :status => "ok" } }
+			format.json { render :json => { :status => t("api.ok") } }
 		end
 		
 	end

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
 			respond_to do |format|
 				format.html { redirect_back_or profile_path }
-				format.json { render :json => {:status => "ok", :token => remember_token} }
+				format.json { render :json => {:status => t("api.ok"), :token => remember_token} }
 			end
 		else
 			respond_to do |format|
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 					flash.now[:error] = "E-mail adres/wachtwoord combinatie niet gevonden"
 					render 'new'
 				}
-				format.json { render :json => {:status => "error"} }
+				format.json { render :json => {:status => t("api.error") } }
 			end
 		end
 	end

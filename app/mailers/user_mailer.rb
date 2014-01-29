@@ -5,20 +5,22 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	@url = Rails.application.config.site_url
   	
-  	mail(to: @user.email, subject: "Welcome to <Sitename>")
+  	mail(to: @user.email, subject: t("user_mailer.subjects.welcome_email", sitename: t("sitename")))
   end
   
   def welcome_email_provider(user)
   	@user = user
   	@url = Rails.application.config.site_url
-  	mail(to: @user.email, subject: "Welcome to <Sitename>")
+
+	mail(to: @user.email, subject: t("user_mailer.subjects.welcome_email", sitename: t("sitename")))
+
   end
   
   def password_reset(user)
   	@user = user
   	@url = Rails.application.config.site_url
   	
-  	mail :to => @user.email, :subject => "Password reset"
+  	mail :to => @user.email, :subject => t("user_mailer.subjects.password_reset", sitename: t("sitename"))
   end
   
   def contact_message(message)

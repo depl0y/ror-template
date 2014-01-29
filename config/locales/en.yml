@@ -50,3 +50,16 @@ en:
             terms: "I agree with the terms"
             save: "Save"
 
+    session:
+        sign_in_required:
+            title: "Sign in required"
+            message: "You need to be signed in to open this page"
+
+        no_access:
+            title: "Access denied"
+            message: "You are not allowed to view this page"
+
+    user_mailer:
+        subjects:
+            password_reset: "Your password reset request for %{sitename}"
+            welcome_email: "Welcome to %{sitename}"
