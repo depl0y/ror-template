@@ -8,7 +8,7 @@ A Ruby on Rails template, which already has a lot of features you do not want to
 - Facebook login and register
 - User login with authentication tokens
 - Database scheme for setting up the default database
-- Bootstrap **3.0.3** already integrated
+- Bootstrap **3.1.0** already integrated
 - Send email on registration / password forget, etc.
 - Basic JSON API setup, user log in and signup
 - Basic localisation set up
@@ -88,6 +88,9 @@ config/locales/en.yml
 ```
 
 This file contains all texts used in the template. It could still use some work, to actually set up the right fields for the model attributes, but this will be added later.
+
+##Bootstrap 3.1.0
+Bootstrap is integrated, but I did choose not to use a gem for it. I just put the files in the `vendor` folder. This way it can easily be swapped out for your own framework or no framework at all.
 
 ##Gem dependencies
 
